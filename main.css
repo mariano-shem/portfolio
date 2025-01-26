@@ -1,0 +1,146 @@
+@font-face {
+  font-family: "Montserrat";
+  src: url(font/Montserrat/Montserrat-VariableFont_wght.ttf);
+  font-weight: 100 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Open Sans";
+  src: url(font/OpenSans/OpenSans-VariableFont_wdth\,wght.ttf);
+  font-weight: 100 900;
+  font-style: normal;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  font-size: 20px;
+  font-weight: 400;
+  font-family: "Montserrat", Helvetica, sans-serif;
+  color: #f3f4f6;
+}
+
+h1 {font-size: 5rem;}
+h2 {font-size: 3.1rem;}
+h3 {font-size: 1.91rem;}
+h4 {font-size: 1.19rem;}
+h5 {font-size: 0.75rem;}
+
+body {
+  background-color: black;
+}
+.header {
+  z-index: 1;
+  height: 3rem;
+  width: 100%;
+  background-color: black;
+}
+
+.navlinks {
+  list-style-type: none;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  height: inherit;
+}
+
+.navlinks li {
+  margin-right: 3rem;
+  a {
+    text-decoration: none;
+    color: white;
+    font-weight: 300;
+  }
+}
+
+.navlinks li:last-of-type {
+  margin-right: 0;
+}
+
+.home {
+  width: 100%;
+  display: flex;
+  margin-top: 10rem;
+}
+
+.intromsg {
+  display: block;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  width: 100%;
+  user-select: none;
+  h1 {
+    font-weight: 900; 
+    line-height:4.2rem; 
+    padding-bottom: 1rem;
+  }
+  h3 {
+    font-family: "Open Sans", Arial, sans-serif;
+  }
+  h4 { 
+    font-family: "Open Sans", Arial, sans-serif; 
+    font-weight: 400;
+    font-size: 1rem;
+    width: 100%;
+    span {
+      color: rgb(37, 230, 237);
+    }
+    transition: font-weight 0.4s;
+  }
+}
+
+.intromsg h4:hover {
+  font-weight: 700;
+}
+
+.uix {
+  width: 100%;
+  display: flex;
+  margin-top: 3rem;
+  flex-wrap: wrap;
+}
+
+.uix-header {
+  margin: 0 auto;
+  font-weight: 700;
+}
+
+.uix-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  img {
+    max-width: 80%; 
+    height: auto;
+    border-radius: 1rem;
+    margin-top: 2rem;
+    transition: all 0.5s;
+  }
+  img:last-of-type {
+    margin-bottom: 2rem;
+  }
+}
+
+.uix-content img:hover {  
+  transform: scale(1.02);
+}
+
+@media only screen and (min-width: 768px) {
+  .navlinks {
+    display: flex;
+  }
+
+  .intromsg {
+    width: 75%;
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+
+  .uix-content {
+    img {
+      max-width: 60%;
+    }
+  }
+}
