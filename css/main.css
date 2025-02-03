@@ -160,6 +160,8 @@ body {
   margin: 1rem 0;
 }
 .frontend .fe-showcase-container {
+  display: flex;
+  flex-wrap: wrap;
   border-radius: 8px;
   overflow: hidden;
   aspect-ratio: 16/9;
@@ -167,6 +169,7 @@ body {
 .frontend .fe-showcase-container .fe-showcase-img {
   display: flex;
   height: 75%;
+  width: 100%;
   overflow: hidden;
   transition: height 0.5s ease-in-out;
 }
@@ -192,12 +195,6 @@ body {
   width: 100%;
   color: rgba(255, 255, 255, 0.5);
   padding-top: 0.4rem;
-}
-.frontend .fe-showcase-container:hover .fe-showcase-img {
-  height: 60%;
-}
-.frontend .fe-showcase-container:hover .fe-showcase-label {
-  height: 40%;
 }
 
 .creative h4 {
@@ -276,6 +273,12 @@ body {
 @media only screen and (min-width: 600px) {
   .navlinks {
     display: flex;
+  }
+  .frontend .fe-showcase-container:hover .fe-showcase-img {
+    height: 60%;
+  }
+  .frontend .fe-showcase-container:hover .fe-showcase-label {
+    height: 40%;
   }
   .creative .cr-streetwear .cr-sw-container {
     width: 100%;
