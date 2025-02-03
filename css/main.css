@@ -71,13 +71,14 @@ body {
 
 .navlinks {
   list-style-type: none;
-  display: none;
   justify-content: center;
   align-items: center;
   height: inherit;
   width: 100%;
 }
 .navlinks li {
+  cursor: pointer;
+  position: relative;
   margin-right: 3rem;
 }
 .navlinks li a {
@@ -99,6 +100,25 @@ body {
   height: 2px;
   bottom: 0;
   left: -5%;
+}
+.navlinks .nav-dropdown {
+  display: none;
+  padding-top: 0.4rem;
+  list-style-type: none;
+  position: absolute;
+  width: max-content;
+}
+.navlinks .nav-dropdown li {
+  margin-right: 0rem;
+  color: white;
+  opacity: 0.5;
+}
+
+.nav-projects:hover .nav-dropdown, .nav-dropdown:hover .nav-dropdown {
+  display: block;
+}
+.nav-projects li:hover, .nav-dropdown li:hover {
+  opacity: 1;
 }
 
 .home {
@@ -140,41 +160,87 @@ body {
   margin: 1rem 0;
 }
 .frontend .fe-showcase-container {
-  display: block;
-  width: 100%;
-  aspect-ratio: 2/1;
-  border: 1px solid rgba(255, 255, 255, 0);
-  border-top-left-radius: 0.5rem;
-  border-top-right-radius: 0.5rem;
+  border-radius: 8px;
   overflow: hidden;
+  aspect-ratio: 16/9;
 }
 .frontend .fe-showcase-container .fe-showcase-img {
-  width: inherit;
-  scale: 1;
-  transition: ease-in-out 0.5s;
-}
-.frontend .fe-showcase-container:hover .fe-showcase-img {
-  transform: scale(1.1);
-}
-.frontend .fe-showcase-label {
   display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  height: 6rem;
-  border: 1px solid rgba(0, 0, 0, 0);
-  border-bottom-right-radius: 0.5rem;
-  border-bottom-left-radius: 0.5rem;
-  background-color: rgb(10, 10, 10);
-  padding: 1rem;
+  height: 75%;
+  overflow: hidden;
+  transition: height 0.5s ease-in-out;
 }
-.frontend .fe-showcase-label h4 {
+.frontend .fe-showcase-container .fe-showcase-img img {
+  width: 100%;
+  align-self: center;
+}
+.frontend .fe-showcase-container .fe-showcase-label {
+  display: block;
+  width: 100%;
+  height: 25%;
+  background-color: rgb(16, 16, 16);
+  padding: 1rem;
+  transition: height 0.5s ease-in-out;
+}
+.frontend .fe-showcase-container .fe-showcase-label h4 {
+  font-size: 1rem;
   width: 100%;
   margin: 0;
   color: rgba(255, 255, 255, 0.7);
 }
-.frontend .fe-showcase-label p {
+.frontend .fe-showcase-container .fe-showcase-label p {
   width: 100%;
   color: rgba(255, 255, 255, 0.5);
+  padding-top: 0.4rem;
+}
+.frontend .fe-showcase-container:hover .fe-showcase-img {
+  height: 60%;
+}
+.frontend .fe-showcase-container:hover .fe-showcase-label {
+  height: 40%;
+}
+
+.creative h4 {
+  font-family: "Rubik", Helvetica, sans-serif;
+  font-weight: 700;
+  margin: 1rem 0;
+}
+.creative .cr-streetwear .cr-sw-container {
+  margin: 2rem 0;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.creative .cr-streetwear .cr-sw-container .cr-sw-img {
+  display: flex;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+}
+.creative .cr-streetwear .cr-sw-container .cr-sw-img img {
+  align-self: self-end;
+  width: 100%;
+}
+.creative .cr-streetwear .cr-sw-container .cr-sw-label {
+  padding: 1rem;
+  width: 100%;
+  background-color: rgb(16, 16, 16);
+}
+.creative .cr-streetwear .cr-sw-container .cr-sw-label h4 {
+  font-size: 1rem;
+  width: 100%;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.7);
+}
+.creative .cr-streetwear .cr-sw-container .cr-sw-label p {
+  width: 100%;
+  color: rgba(255, 255, 255, 0.5);
+  padding-top: 0.4rem;
+}
+
+.sw-2 {
+  flex-direction: row;
 }
 
 .uix {
@@ -207,9 +273,36 @@ body {
   padding: 1rem 1rem;
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 600px) {
   .navlinks {
     display: flex;
+  }
+  .creative .cr-streetwear .cr-sw-container {
+    width: 100%;
+    aspect-ratio: 3/1;
+  }
+  .creative .cr-streetwear .cr-sw-container .cr-sw-img {
+    width: 50%;
+    height: 100%;
+    transition: width 0.5s ease-in-out;
+  }
+  .creative .cr-streetwear .cr-sw-container .cr-sw-label {
+    align-items: start;
+    width: 50%;
+    height: 100%;
+    transition: width 0.5s ease-in-out;
+  }
+  .creative .cr-streetwear .cr-sw-container .cr-sw-label h4 {
+    font-size: 1.62rem;
+  }
+  .creative .cr-streetwear .cr-sw-container:hover .cr-sw-img {
+    width: 30%;
+  }
+  .creative .cr-streetwear .cr-sw-container:hover .cr-sw-label {
+    width: 70%;
+  }
+  .sw-2 {
+    flex-direction: row-reverse;
   }
   .uix-content img {
     max-width: 60%;

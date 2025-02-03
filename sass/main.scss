@@ -75,6 +75,28 @@ body {
   font-weight: $boldwght;
 }
 
+@mixin h4-format {
+  h4 {
+    font-family: "Rubik", Helvetica, sans-serif;
+    font-weight: 700;
+    margin: 1rem 0;
+  }
+}
+
+@mixin label-format {
+  h4 {
+    font-size: 1rem;
+    width: 100%;
+    margin: 0;
+    color: rgba($color: #ffffff, $alpha: 0.7);
+  }
+  p {
+    width: 100%;
+    color: rgba($color: #ffffff, $alpha: 0.5);
+    padding-top: 0.4rem;
+  }
+}
+
 // NAV SECTION -------
 .nav {
   @include center-div();
@@ -86,13 +108,15 @@ body {
 
 .navlinks {
   list-style-type: none;
-  display: none;
+  // display: none;
   justify-content: center;
   align-items: center;
   height: inherit;
   width: 100%;
 
   li {
+    cursor: pointer;
+    position: relative;
     margin-right: 3rem;
 
     a {
@@ -118,6 +142,33 @@ body {
         bottom: 0;
         left: -5%;
       }
+    }
+  }
+
+  .nav-dropdown {
+    // border: 1px solid white;
+    display: none;
+    padding-top: 0.4rem;
+    list-style-type: none;
+    position: absolute;
+    width: max-content;
+    li {
+      margin-right: 0rem;
+      color: white;
+      opacity: 0.5;
+    }
+  }
+}
+
+.nav-projects, .nav-dropdown {
+  &:hover {
+    .nav-dropdown {
+      display: block;
+    }
+  }
+  li {
+    &:hover {
+      opacity: 1; 
     }
   }
 }
@@ -151,53 +202,78 @@ body {
 }
 .frontend {
   margin: 2rem 0;
-  h4 {
-    font-family: "Rubik", Helvetica, sans-serif;
-    font-weight: 700;
-    margin: 1rem 0;
-  }
+  @include h4-format();
   .fe-showcase-container {
-    display: block;
-    width: 100%;
-    aspect-ratio: 2 / 1;
-    border: 1px solid rgba($color: #ffffff, $alpha: 0);
-    border-top-left-radius: 0.5rem;
-    border-top-right-radius: 0.5rem;
+    border-radius: 8px;
     overflow: hidden;
+    aspect-ratio: 16 / 9;
 
     .fe-showcase-img {
-      width: inherit;
-      scale: 1;
-      transition: ease-in-out 0.5s;
+      display: flex;
+      height: 75%;
+      overflow: hidden;
+      transition: height 0.5s ease-in-out;
+      img {
+        width: 100%;
+        align-self: center;
+      }
+  
     }
-
+  
+    .fe-showcase-label {
+      display: block;
+      width: 100%;
+      height: 25%;
+      background-color: rgb(16, 16, 16);
+      padding: 1rem;
+      @include label-format();
+      transition: height 0.5s ease-in-out;
+    }
     &:hover {
       .fe-showcase-img {
-        transform: scale(1.1);
+        height: 60%;
+      }
+      .fe-showcase-label {
+        height: 40%;
       }
     }
   }
 
-  .fe-showcase-label {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    height: 6rem;
-    border: 1px solid rgba($color: #000000, $alpha: 0);
-    border-bottom-right-radius: 0.5rem;
-    border-bottom-left-radius: 0.5rem;
-    background-color: rgb(10, 10, 10);
-    padding: 1rem;
-    h4 {
-      width: 100%;
-      margin: 0;
-      color: rgba($color: #ffffff, $alpha: 0.7)
-    }
-    p {
-      width: 100%;
-      color: rgba($color: #ffffff, $alpha: 0.5)
+}
+
+.creative {
+  @include h4-format();
+  .cr-streetwear {
+    .cr-sw-container {
+      margin: 2rem 0;
+      display: flex;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      border-radius: 8px;
+      overflow: hidden;
+      .cr-sw-img {
+        display: flex;
+        overflow: hidden;
+        aspect-ratio: 4 / 3;
+        img {
+          align-self: self-end;
+          width: 100%;
+        }
+      }
+
+      .cr-sw-label {
+        @include label-format();
+        // display: block;
+        padding: 1rem;
+        width: 100%;
+        background-color: rgb(16, 16, 16);
+      }
     }
   }
+}
+
+.sw-2 {
+  flex-direction: row;
 }
 
 // UIUX SECTION ------
@@ -232,13 +308,49 @@ body {
 .graphicdesign {
   @include center-div();
 }
-
-//MEDIA QUERY ------ RESPONSIVE SCREEN
-@media only screen and (min-width: 768px) {
+//MEDIA QUERY ------ RESPONSIVE SCREEN FOR NON-MOBILE
+@media only screen and (min-width: 600px) {
   .navlinks {
     display: flex;
   }
 
+  .creative {
+    .cr-streetwear {
+      .cr-sw-container {
+        width: 100%;
+        aspect-ratio: 3 / 1;
+        .cr-sw-img {
+          width: 50%;
+          height: 100%;
+          transition: width 0.5s ease-in-out;
+        }
+
+        .cr-sw-label {
+          align-items: start;
+          width: 50%;
+          height: 100%;
+          transition: width 0.5s ease-in-out;
+          h4 {
+            font-size: 1.62rem;
+          }
+        }
+
+        &:hover {
+          .cr-sw-img {
+            width: 30%;
+          }
+
+          .cr-sw-label {
+            width: 70%;
+          }
+        }
+      }
+    }
+  }
+
+  .sw-2 {
+    flex-direction: row-reverse;
+  }
   .uix-content {
     img {
       max-width: 60%;
