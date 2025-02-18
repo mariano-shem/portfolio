@@ -80,6 +80,8 @@ body {
     font-family: "Rubik", Helvetica, sans-serif;
     font-weight: 700;
     margin: 1rem 0;
+    display: block;
+    width: 100%;
   }
 }
 
@@ -269,72 +271,45 @@ body {
 }
 
 .creative {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
   @include h4-format();
-  .cr-streetwear {
-    .cr-sw-container {
-      margin: 2rem 0;
-      display: flex;
-      align-items: flex-start;
-      flex-wrap: wrap;
-      border-radius: 8px;
+
+  .creative-works {
+    display: block;
+    width: 48%;
+    margin: 1% 0;
+    aspect-ratio: 1 / 1;
+    border-radius: 8px;
+    overflow: hidden;
+    // border: 1px solid white;
+    .cw-img {
+      // border-bottom: 1px solid white;
+      height: 75%;
       overflow: hidden;
-      .cr-sw-img {
-        display: flex;
-        overflow: hidden;
-        aspect-ratio: 4 / 3;
+      img {
+        width: 100%;
+        transition: transform 0.5s ease-in-out;
+      }
+    }
+    .cw-label {
+      @include label-format();
+      padding: 0.75rem;
+      background-color: rgb(16, 16, 16);
+    }
+    &:hover {
+      .cw-img {
         img {
-          align-self: self-end;
-          width: 100%;
+          transform: scale(1.1);
         }
       }
-
-      .cr-sw-label {
-        @include label-format();
-        // display: block;
-        padding: 1rem;
-        width: 100%;
-        background-color: rgb(16, 16, 16);
-      }
     }
   }
 }
 
-.sw-2 {
-  flex-direction: row;
-}
 
-// UIUX SECTION ------
-.uix {
-  @include center-div();
-
-  .uix-content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    img {
-      max-width: 90%;
-      height: auto;
-      border-radius: 18px;
-      margin-top: 2rem;
-      transition: all 0.5s;
-
-      &:last-of-type {
-        margin-bottom: 2rem;
-      }
-
-      &:hover {
-        transform: scale(1.02);
-      }
-    }
-  }
-}
-
-//GRAPHIC DESIGN SECTION ------
-
-.graphicdesign {
-  @include center-div();
-}
 //MEDIA QUERY ------ RESPONSIVE SCREEN FOR NON-MOBILE
 @media only screen and (min-width: 600px) {
 
@@ -381,44 +356,6 @@ body {
     }
   }
 
-  .creative {
-    .cr-streetwear {
-      .cr-sw-container {
-        width: 100%;
-        aspect-ratio: 3 / 1;
-        .cr-sw-img {
-          width: 50%;
-          height: 100%;
-          transition: width 0.5s ease-in-out;
-        }
-
-        .cr-sw-label {
-          position: relative;
-          align-items: start;
-          width: 50%;
-          height: 100%;
-          transition: width 0.5s ease-in-out;
-          h4 {
-            font-size: 1.62rem;
-          }
-        }
-
-        &:hover {
-          .cr-sw-img {
-            width: 30%;
-          }
-
-          .cr-sw-label {
-            width: 70%;
-          }
-        }
-      }
-    }
-  }
-
-  .sw-2 {
-    flex-direction: row-reverse;
-  }
   .uix-content {
     img {
       max-width: 60%;
