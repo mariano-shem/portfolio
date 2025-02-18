@@ -102,32 +102,27 @@ body {
   @include center-div();
   z-index: 1;
   height: max-content;
-  width: 100%;
+  max-width: 40rem;
   background-color: black;
 }
 
 .navlinks {
+  display: flex;
+  flex-wrap: wrap;
   list-style-type: none;
-  // display: none;
-  justify-content: center;
-  align-items: center;
-  height: inherit;
-  width: 100%;
 
   li {
+    display: flex;
+    justify-content: flex-end;
     cursor: pointer;
     position: relative;
-    margin-right: 3rem;
-
+    padding: 0.2rem 0;
+    width: 100%;
     a {
       text-decoration: none;
       color: white;
       font-weight: $lightwght;
       position: relative;
-      padding: 4px 0;
-    }
-    &:last-of-type {
-      margin-right: 0;
     }
 
     a:is(:link, :active, :visited).active {
@@ -139,36 +134,37 @@ body {
 
         width: 110%;
         height: 2px;
-        bottom: 0;
+        bottom: -2px;
         left: -5%;
       }
     }
   }
 
   .nav-dropdown {
-    // border: 1px solid white;
+    border: 1px solid white;
+    border-radius: 4px;
     display: none;
-    padding-top: 0.4rem;
+    padding: 0.5rem;
     list-style-type: none;
     position: absolute;
     width: max-content;
+    height: max-content;
+    left: 5rem;
+    top: -0.5rem;
     li {
       margin-right: 0rem;
       color: white;
       opacity: 0.5;
     }
   }
-}
 
-.nav-projects, .nav-dropdown {
-  &:hover {
-    .nav-dropdown {
-      display: block;
-    }
-  }
-  li {
-    &:hover {
-      opacity: 1; 
+  .active-dropdown {
+    display: block;
+  
+    li {
+      &:hover {
+        opacity: 1;
+      }
     }
   }
 }
@@ -208,31 +204,68 @@ body {
     flex-wrap: wrap;
     border-radius: 8px;
     overflow: hidden;
-    aspect-ratio: 16 / 9;
     .fe-showcase-img {
       display: flex;
       height: 75%;
-      width: 100%;
       overflow: hidden;
       transition: height 0.5s ease-in-out;
       img {
         width: 100%;
         align-self: center;
       }
-  
     }
   
     .fe-showcase-label {
-      display: block;
+      // display: flex;
       width: 100%;
       height: 25%;
       background-color: rgb(16, 16, 16);
       padding: 1rem;
       @include label-format();
       transition: height 0.5s ease-in-out;
+      overflow: hidden;
+
+      .fe-tech-stack {
+        list-style-type: none;
+        display: flex;
+        // position: absolute;
+        margin-top: 1.5rem;
+        // background-color: blue;
+        width: 100%;
+        height: 4rem;
+        flex-wrap: wrap;
+
+        li {
+          display: flex;
+          margin-right: 1.5rem;
+          width: max-content;
+        }
+        @mixin icon-format {
+          height: 1.5rem;
+          margin-right: 0.5rem;
+          
+        }
+        .html-stack {
+          content: url(../ico/html5.svg);
+          @include icon-format();
+        }
+
+        .css-stack {
+          content: url(../ico/css3.svg);
+          @include icon-format();
+        }
+
+        .js-stack {
+          content: url(../ico/javascript.svg);
+          @include icon-format();
+        }
+        .git-stack {
+          content: url(../ico/git.svg);
+          @include icon-format();
+        }
+      }
     }
   }
-
 }
 
 .creative {
@@ -304,18 +337,45 @@ body {
 }
 //MEDIA QUERY ------ RESPONSIVE SCREEN FOR NON-MOBILE
 @media only screen and (min-width: 600px) {
+
   .navlinks {
-    display: flex;
+    justify-self: flex-end;
+    li {
+      width: fit-content;
+      justify-content: center;
+      margin-right: 3rem;
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+    .nav-dropdown {
+      top: 1.75rem;
+      left: -0.5rem;
+    }
   }
+
+
 
   .frontend {
     .fe-showcase-container {
+      aspect-ratio: 16 / 9;
+
+      .fe-showcase-label {
+        .fe-tech-stack {
+          li {
+            width: max-content;
+          }
+        }
+      }
+
       &:hover {
         .fe-showcase-img {
           height: 60%;
         }
+
         .fe-showcase-label {
           height: 40%;
+          overflow: visible;
         }
       }
     }
@@ -333,6 +393,7 @@ body {
         }
 
         .cr-sw-label {
+          position: relative;
           align-items: start;
           width: 50%;
           height: 100%;

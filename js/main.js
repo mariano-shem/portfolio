@@ -7,3 +7,9 @@ forEach(link => {
 })
 
 //NAV-PROJECTS DROPDOWN 
+
+const projDropdown  = document.querySelector(".nav-projects");
+
+projDropdown.addEventListener("click", function() {
+  document.querySelector(".nav-dropdown").classList.toggle("active-dropdown");
+})
