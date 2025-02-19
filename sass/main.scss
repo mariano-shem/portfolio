@@ -62,7 +62,7 @@ body {
   display: block;
 }
 
-// MIXINS --------
+// MIX`INS --------
 @mixin center-div {
   // border: 1px solid white;
   display: block;
@@ -97,6 +97,41 @@ body {
     color: rgba($color: #ffffff, $alpha: 0.5);
     padding-top: 0.4rem;
   }
+}
+
+@mixin icon-format {
+  height: 1.5rem;
+  margin-right: 0.5rem;
+  
+}
+
+.html-stack {
+  content: url(../ico/html5.svg);
+  @include icon-format();
+}
+.css-stack {
+  content: url(../ico/css3.svg);
+  @include icon-format();
+}
+.sass-stack {
+  content: url(../ico/sass.svg);
+  @include icon-format();
+}
+.js-stack {
+  content: url(../ico/javascript.svg);
+  @include icon-format();
+}
+.py-stack {
+  content: url(../ico/python.svg);
+  @include icon-format();
+}
+.git-stack {
+  content: url(../ico/git.svg);
+  @include icon-format();
+}
+.django-stack {
+  content: url(../ico/django.svg);
+  @include icon-format();
 }
 
 // NAV SECTION -------
@@ -198,6 +233,24 @@ body {
     font-weight: 300;
   }
 }
+.techstack {
+  @include h4-format();
+  margin: 2rem 0;
+  // border: 1px solid white;
+  .ts-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+    width: 100%;
+    // background-color: blue;
+    list-style-type: none;
+    li {
+      display: flex;
+      width: 32%;
+      margin-bottom: 0.5rem;
+    }
+  }
+}
 .frontend {
   margin: 2rem 0;
   @include h4-format();
@@ -242,34 +295,10 @@ body {
           margin-right: 1.5rem;
           width: max-content;
         }
-        @mixin icon-format {
-          height: 1.5rem;
-          margin-right: 0.5rem;
-          
-        }
-        .html-stack {
-          content: url(../ico/html5.svg);
-          @include icon-format();
-        }
-
-        .css-stack {
-          content: url(../ico/css3.svg);
-          @include icon-format();
-        }
-
-        .js-stack {
-          content: url(../ico/javascript.svg);
-          @include icon-format();
-        }
-        .git-stack {
-          content: url(../ico/git.svg);
-          @include icon-format();
-        }
       }
     }
   }
 }
-
 .creative {
   display: flex;
   flex-wrap: wrap;

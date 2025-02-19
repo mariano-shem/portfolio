@@ -59,6 +59,48 @@ body {
   display: block;
 }
 
+.html-stack {
+  content: url(../ico/html5.svg);
+  height: 1.5rem;
+  margin-right: 0.5rem;
+}
+
+.css-stack {
+  content: url(../ico/css3.svg);
+  height: 1.5rem;
+  margin-right: 0.5rem;
+}
+
+.sass-stack {
+  content: url(../ico/sass.svg);
+  height: 1.5rem;
+  margin-right: 0.5rem;
+}
+
+.js-stack {
+  content: url(../ico/javascript.svg);
+  height: 1.5rem;
+  margin-right: 0.5rem;
+}
+
+.py-stack {
+  content: url(../ico/python.svg);
+  height: 1.5rem;
+  margin-right: 0.5rem;
+}
+
+.git-stack {
+  content: url(../ico/git.svg);
+  height: 1.5rem;
+  margin-right: 0.5rem;
+}
+
+.django-stack {
+  content: url(../ico/django.svg);
+  height: 1.5rem;
+  margin-right: 0.5rem;
+}
+
 .nav {
   display: block;
   margin: 0 auto;
@@ -152,6 +194,29 @@ body {
   font-weight: 300;
 }
 
+.techstack {
+  margin: 2rem 0;
+}
+.techstack h4 {
+  font-family: "Rubik", Helvetica, sans-serif;
+  font-weight: 700;
+  margin: 1rem 0;
+  display: block;
+  width: 100%;
+}
+.techstack .ts-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+  width: 100%;
+  list-style-type: none;
+}
+.techstack .ts-list li {
+  display: flex;
+  width: 32%;
+  margin-bottom: 0.5rem;
+}
+
 .frontend {
   margin: 2rem 0;
 }
@@ -209,26 +274,6 @@ body {
   display: flex;
   margin-right: 1.5rem;
   width: max-content;
-}
-.frontend .fe-showcase-container .fe-showcase-label .fe-tech-stack .html-stack {
-  content: url(../ico/html5.svg);
-  height: 1.5rem;
-  margin-right: 0.5rem;
-}
-.frontend .fe-showcase-container .fe-showcase-label .fe-tech-stack .css-stack {
-  content: url(../ico/css3.svg);
-  height: 1.5rem;
-  margin-right: 0.5rem;
-}
-.frontend .fe-showcase-container .fe-showcase-label .fe-tech-stack .js-stack {
-  content: url(../ico/javascript.svg);
-  height: 1.5rem;
-  margin-right: 0.5rem;
-}
-.frontend .fe-showcase-container .fe-showcase-label .fe-tech-stack .git-stack {
-  content: url(../ico/git.svg);
-  height: 1.5rem;
-  margin-right: 0.5rem;
 }
 
 .creative {
